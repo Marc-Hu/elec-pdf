@@ -1,9 +1,9 @@
 const ipc = require('electron').ipcRenderer;
-
 const printPDFButton = document.getElementById('print-pdf');
 
 printPDFButton.addEventListener('click', function(event){
-    ipc.send('print-to-pdf');
+    //ipc.send('print-to-pdf');
+    printJS('./pdf/testing.pdf');
 });
 
 ipc.on('wrote-pdf', function(event, path) {

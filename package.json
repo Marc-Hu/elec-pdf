@@ -20,6 +20,7 @@
     "electron": "^2.0.0"
   },
   "dependencies": {
-    "mapbox-print-pdf": "^0.4.3"
+    "mapbox-print-pdf": "^0.4.3",
+    "print-js": "^1.0.47"
   }
 }

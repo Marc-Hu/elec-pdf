@@ -1,12 +1,13 @@
 const electron = require('electron');
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
 
 const fs = require('fs');
 const os = require('os');
+//const printPdf = require('mapbox-print-pdf');
 const ipc = electron.ipcMain;
 const shell = electron.shell;
 
@@ -42,7 +43,20 @@ app.on('activate', function () {
 });
 
 ipc.on('print-to-pdf', function(event){
-    const pdfPath = path.join(os.tmpdir(), 'print.pdf');
+    /*mainWindow.loadURL('file://' + __dirname + '/pdf/testing.pdf');
+
+// if pdf is loaded start printing
+    /*mainWindow.webContents.on('did-finish-load', () => {
+        mainWindow.webContents.print({silent: true, printBackground:true});
+    });*/
+    //printPdf.build();
+        /*.format('a3')
+        .portrait() // Unnecessary since it's the default but it's included for clarity.
+        .print(map, mapboxgl)
+        .then(function(pdf) {
+            pdf.save('./pdf/testing.pdf');
+        });*/
+    /*const pdfPath = path.join(os.tmpdir(), 'print.pdf');
     const win = BrowserWindow.fromWebContents(event.sender);
     event.sender.send('wrote-pdf', pdfPath);
 
@@ -51,7 +65,7 @@ ipc.on('print-to-pdf', function(event){
     printPdf.build()
         .format('a4')
         .portrait() // Unnecessary since it's the default but it's included for clarity.
-        .print(map, mapboxgl);
+        .print(map, mapboxgl);*/
 
   // fs.readdir('./pdf', function(err,dir) {
   //     for(let filePath of dir) {
